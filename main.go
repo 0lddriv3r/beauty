@@ -51,9 +51,9 @@ func main() {
 		goPaths := strings.Split(goPathEnv, ":")
 		targetGoPath := ""
 		targetZipPath := ""
-		tailZipPath := "github.com/yang-f/beauty/etc/demo.zip"
+		tailZipPath := "github.com/yang-f/beauty@v0.0.6/etc/demo.zip"
 		for _, goPath := range goPaths {
-			tempZipPath := fmt.Sprintf("%s/src/%s", goPath, tailZipPath)
+			tempZipPath := fmt.Sprintf("%s/pkg/mod/%s", goPath, tailZipPath)
 			_, err := os.Stat(tempZipPath)
 			if err == nil {
 				targetGoPath = goPath
@@ -77,7 +77,7 @@ func main() {
 			OldText: "{appName}",
 			NewText: *name,
 		}
-		helper.DoWrok()
+		helper.DoWork()
 		log.Printf("Generate %s success.", *name)
 	case demo.FullCommand():
 		log.Printf("Start server on port %s", settings.Listen)

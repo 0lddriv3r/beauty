@@ -139,7 +139,7 @@ type ReplaceHelper struct {
 	NewText string
 }
 
-func (h *ReplaceHelper) DoWrok() error {
+func (h *ReplaceHelper) DoWork() error {
 	return filepath.Walk(h.Root, h.walkCallback)
 }
 
